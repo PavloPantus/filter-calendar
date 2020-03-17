@@ -1,0 +1,103 @@
+.side-panel{
+
+  &__select-wrapper {
+      display: flex;
+    }
+
+
+  &__select-level {
+    z-index: 2;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    border: none;
+    text-align: center;
+    outline: none;
+    padding: 18px 101px 18px 20px;
+    background-image: url("/images/icon-arrow.svg");
+    background-position: 80% 50%;
+    background-repeat: no-repeat;
+    box-shadow: 0px 10px 40px rgba(128, 158, 191, 0.2);
+    border-radius: 10px;
+    background-color: white;
+    font-family: PT Sans;
+    font-weight: bold;
+    font-size: 15px;
+  }
+
+  &__select-icon {
+    margin-left: -20px;
+    width: 79px;
+    height: 55px;
+    right: -59px;
+    top: 0px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("/images/icon-bread.svg");
+    background-color: #FFFFFF;
+    box-shadow: 0px 10px 40px rgba(128, 158, 191, 0.2);
+    border-radius: 10px;
+  }
+
+ &__side-menu {
+   margin-top: 11px;
+ }
+}
+
+.side-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 9px;
+  background: #FFFFFF;
+  box-shadow: 0px 10px 40px rgba(128, 158, 191, 0.2);
+  border-radius: 10px;
+  width: 177px;
+
+  &__menu-item {
+    &:not(:first-child){
+      margin-top: 8px;
+    }
+
+    font-family: PT Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 158px;
+    height: 85px;
+    background: #FFFFFF;
+    border: 1px solid #E7ECF1;
+    box-sizing: border-box;
+    border-radius: 6px;
+    transition: all 0.5s;
+    outline: none;
+
+    &:hover {
+      border-color: #F16E36;
+      color: #F16E36;
+    }
+
+    &:hover .side-menu__item-logo{
+      filter: invert(53%) sepia(73%) saturate(2252%) hue-rotate(339deg) brightness(98%) contrast(93%);
+    }
+
+    &:focus {
+      border-color: #FF7439;
+      color: #FF7439;
+    }
+
+    &:focus .side-menu__item-logo{
+      filter: invert(59%) sepia(94%) saturate(2731%) hue-rotate(336deg) brightness(103%) contrast(102%);
+    }
+  }
+
+  &__item-logo {
+    margin-bottom: 12px;
+  }
+}

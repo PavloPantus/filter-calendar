@@ -1,0 +1,27 @@
+@import 'reset';
+* {
+  box-sizing: border-box;
+}
+
+.app {
+  background-color: #F0F6FC;
+
+  &__container {
+    margin: 0 auto;
+    max-width: 1844px;
+  }
+
+  &__main-display {
+    margin-top: 60px;
+    display: flex;
+    width: 100%;
+  }
+
+  &__users-table-wrapper {
+    margin-left: 104px;
+  }
+}
+
+.capa_1:hover {
+  filter: invert(59%) sepia(91%) saturate(2503%) hue-rotate(335deg) brightness(100%) contrast(102%);
+}
