@@ -3,6 +3,7 @@ import './App.scss';
 import Header from "./components/Header/Header";
 import SidePanel from "./components/SidePanel/SidePanel";
 import UsersTableControls from "./components/UsersTableControls/UsersTableControls";
+import UsersTable from "./components/UsersTable/UsersTable";
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
           <SidePanel />
           <div className="app__users-table-wrapper">
             <UsersTableControls />
+            <UsersTable />
           </div>
         </div>
       </div>

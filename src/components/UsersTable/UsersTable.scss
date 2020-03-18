@@ -1,0 +1,179 @@
+@import "../../style/extends";
+
+.users-table {
+  text-align: left;
+  vertical-align: middle;
+  margin-top: 10px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  width: 1269px;
+
+  &__head {
+    position: relative;
+
+    &:after{
+      content: '';
+      left: 50%;
+      transform: translateX(-46%);
+      display: block;
+      position: absolute;
+      background-color: #E7ECF1;
+      height: 1px;
+      width: 1194px;
+    }
+  }
+
+  &__row-head {
+    height: 62px;
+  }
+
+  &__heading {
+    &:first-child{
+      padding-left: 32px;
+    }
+    vertical-align: middle;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+  }
+
+  &__all-users-checkbox {
+    z-index: -1;
+    visibility: hidden;
+    position: absolute;
+
+    &:checked+.users-table__all-users-label{
+      background-image: url("/images/icon-arrow.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      border-color: #FF7439;
+    }
+  }
+
+  &__all-users-label {
+    &:hover {
+      border-color: #F16E36;
+    }
+    cursor: pointer;
+    display: block;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 2px solid rgba(131, 142, 157, 0.3);
+  }
+
+  &__show-users-button {
+    @extend %controls-button-with-arrow;
+    width: 130px;
+    height: 20px;
+  }
+
+  &__body {
+    &:before {
+      content:"@";
+      display:block;
+      line-height:12px;
+      text-indent:-99999px;
+    }
+  }
+
+  &__row {
+    height: 57px;
+  }
+
+  &__data {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+
+    vertical-align: middle;
+    &:first-child{
+      padding-left: 32px;
+    }
+    &:not(:last-child) {
+      padding-right: 38px;
+    }
+    &:last-child{
+      padding-right: 45px;
+      text-align: right;
+    }
+
+    position: relative;
+    &.add-blur:after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      top: 0;
+      display: block;
+      position: absolute;
+      box-shadow: inset -161px 0px 42px -64px #fff;
+    }
+  }
+
+  &__user-checkbox {
+    z-index: -1;
+    visibility: hidden;
+    position: absolute;
+
+    &:checked+.users-table__user-label{
+      background-image: url("/images/icon-arrow.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      border-color: #FF7439;
+    }
+  }
+
+  &__user-label {
+    &:hover {
+      border-color: #F16E36;
+    }
+    cursor: pointer;
+    display: block;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 2px solid rgba(131, 142, 157, 0.3);
+  }
+
+  &__user-mail {
+    margin-top: 7px;
+    font-family: Montserrat, serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 13px;
+  }
+
+  &__edit-item {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
+
+    &:hover img{
+      filter: invert(53%) sepia(73%) saturate(2252%) hue-rotate(339deg) brightness(98%) contrast(93%);
+    }
+
+    &:focus img{
+      filter: invert(59%) sepia(94%) saturate(2731%) hue-rotate(336deg) brightness(103%) contrast(102%);
+    }
+  }
+
+  &__delete-item {
+    margin-left: 40px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
+
+    &:hover img{
+      filter: invert(53%) sepia(73%) saturate(2252%) hue-rotate(339deg) brightness(98%) contrast(93%);
+    }
+
+    &:focus img{
+      filter: invert(59%) sepia(94%) saturate(2731%) hue-rotate(336deg) brightness(103%) contrast(102%);
+    }
+  }
+
+}
