@@ -1,6 +1,9 @@
 @import "../../style/extends";
 
 .controls {
+  position: sticky;
+  top: 0;
+  z-index: 3;
   width: 1269px;
   height: 85px;
   background: #FFFFFF;
@@ -71,4 +74,21 @@
   &__name {
     margin-left: 7px;
   }
+}
+
+.calendar-container {
+  top: 0;
+  left: 0;
+  z-index: 4;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: rgba(240, 246, 252, 0.7);
+  backdrop-filter: blur(40px);
+}
+
+.calendar-wrapper {
+  position: absolute;
+  top: 171px;
+  left: 343px;
 }
