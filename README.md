@@ -1,3 +1,3 @@
 # filter-calendar
 
-example 
+example https://pavlopantus.github.io/filter-calendar/
