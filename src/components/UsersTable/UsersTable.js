@@ -95,7 +95,7 @@ const UsersTable = () => {
       <tbody className="users-table__body">
         {
           users.map(user=>(
-            <tr className="users-table__row">
+            <tr key={user.userNumber} className="users-table__row">
               <td className="users-table__data">
                 <label>
                   <input

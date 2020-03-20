@@ -3,7 +3,12 @@ import './FilterCalendar.scss';
 import SimpleReactCalendar from 'simple-react-calendar';
 import moment from 'moment';
 
-const FilterCalendar = () => {
+const FilterCalendar = (
+  {
+    showCalendar,
+    setTimePeriodStart,
+    setTimePeriodEnd,
+  }) => {
   let now = moment();
 
   const [date, setDate] = useState(new Date);
@@ -164,10 +169,17 @@ const FilterCalendar = () => {
         <div className="calendar__main-controls">
           <button
             className={'calendar__cancel'}
+            onClick={()=>{showCalendar(false)}}
           >
             Отмена
           </button>
           <button
+            onClick={()=>{
+              setTimePeriodStart(selectStart);
+              setTimePeriodEnd(selectEnd);
+              showCalendar(false)
+            }}
+            disabled={!(selectStart && selectEnd)}
             className={'calendar__update'}
           >
             Обновить

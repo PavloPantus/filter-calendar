@@ -69,7 +69,43 @@
     font-weight: normal;
     font-size: 16px;
   }
+
+  &__main-controls {
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__cancel {
+    width: 130px;
+    height: 45px;
+    border: 2px solid #000000;
+    border-radius: 7px;
+    background-color: transparent;
+    cursor: pointer;
+
+    &:hover {
+      background: #000000;
+      color: white;
+    }
+  }
+
+  &__update {
+    border: none;
+    margin-left: 7px;
+    width: 130px;
+    height: 45px;
+    background: #FF7439;
+    border-radius: 7px;
+    cursor: pointer;
+    &:disabled{
+      background: rgba(255, 116, 57, 0.5);
+    }
+  }
 }
+
 
 
 .block-calendar{

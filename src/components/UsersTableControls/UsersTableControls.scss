@@ -1,17 +1,23 @@
 @import "../../style/extends";
 
-.controls {
+.controls-table {
   position: sticky;
   top: 0;
   z-index: 3;
   width: 1269px;
-  height: 85px;
   background: #FFFFFF;
   border-radius: 10px;
   display: flex;
+  flex-direction: column;
   padding-left: 35px;
   padding-right: 21px;
-  align-items: center;
+
+  &__container {
+    display: flex;
+    width: 100%;
+    height: 85px;
+    align-items: center;
+  }
 
 
 
@@ -32,13 +38,8 @@
     cursor: pointer;
 
     &:hover {
-      border-color: #F16E36;
-      color: #F16E36;
-    }
-
-    &:focus {
-      border-color: #FF7439;
-      color: #FF7439;
+      background: #000000;
+      color: white;
     }
   }
 
@@ -55,6 +56,48 @@
     background: #FF7439;
     border-radius: 7px;
     padding: 11px 15px 11px 30px;
+  }
+
+  &__filters-container {
+    display: flex;
+    border-top: 1px solid #E7ECF1;
+    width: 100%;
+    padding-top: 11px;
+    padding-bottom: 14px;
+  }
+
+  &__active-filter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 223px;
+    height: 41px;
+    background: #586375;
+    border-radius: 100px;
+  }
+
+  &__filter-data {
+    font-family: PT Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+    color: #FFFFFF;
+  }
+
+  &__cancel-filter {
+    width: 27px;
+    height: 27px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    background-size: contain;
+    background-image: url("/images/icon-filter-close.svg");
+    cursor: pointer;
+    margin-left: 16px;
+
+    &:hover {
+      border-color: #F16E36;
+    }
   }
 }
 
