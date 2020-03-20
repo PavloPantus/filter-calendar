@@ -55,54 +55,65 @@
     border-radius: 10px;
   }
 
-  &__controls-top {
+  &__block-calendar{
+    position: relative;
+  }
+  &__current-month{
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-family: PT Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+  }
+}
+
+
+.block-calendar{
+
+  &-month {
+    background-blend-mode: overlay;
+    padding: 17px 0 22px 0;
+    margin-top: 16px;
+    background: #F3F8FD;
+  }
+
+  &-month_header {
     display: flex;
     justify-content: space-between;
     width: 100%;
     padding: 18px 15px 0 15px;
   }
 
-  &__month-forward{
-    transform: rotate(180deg);
-  }
-}
-
-.month-control {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-
-  &:hover {
-    border-color: #F16E36;
+  &-month_header_title{
+    display: none;
   }
 
-  &:focus {
-    border-color: #FF7439;
-  }
+  &-header_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 
+    &:hover {
+      border-color: #F16E36;
+    }
 
-  &:hover img{
-    filter: invert(53%) sepia(73%) saturate(2252%) hue-rotate(339deg) brightness(98%) contrast(93%);
-  }
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    border: 2px solid black;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("/images/icon-calendar-control-arrow.svg");
 
-  &:focus img{
-    filter: invert(59%) sepia(94%) saturate(2731%) hue-rotate(336deg) brightness(103%) contrast(102%);
-  }
-
-  background-color: #FFFFFF;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  border: 2px solid black;
-}
-
-.block-calendar{
-  &-month {
-    background-blend-mode: overlay;
-    padding: 17px 0 22px 0;
-    margin-top: 16px;
-    background: #F3F8FD;
+    &.is-next {
+      transform: rotate(180deg);
+    }
   }
 
   &-days_of_week {
@@ -131,69 +142,85 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
-    width: 28px;
+    width: 100%;
     height: 28px;
-    border-radius: 50%;
     outline: none;
+    z-index: 2;
     &:first-child{
       padding-left: 14px;
+      &:before{
+        left: 65%;
+      }
     }
     &:last-child{
       padding-right: 14px;
+      &:before{
+        left: 35%;
+      }
     }
+    position: relative;
 
-    &:hover {
+    &:hover:before{
       background: #DFE9F3;
     }
 
-    &.is-start_selection.is-highlighted{
-      background-blend-mode: overlay;
-      position: relative;
-      z-index: 2;
+    &:before{
+      content: '';
+      display: block;
       width: 28px;
       height: 28px;
-      background: #FF7439;
+      position: absolute;
+      left: 50%;
+      top: 0;
       border-radius: 50%;
-      &:first-child{
-        &:before{
-          transform: translateX(1px);
-        }
+      transform: translateX(-50%);
+      z-index: -1;
+    }
+
+    &.is-start_selection.is-highlighted{
+      &:before{
+        background: #FF7439;
       }
-      &:before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        transform: translateX(15px);
-        width: 70%;
-        height: 100%;
+      &:after{
+        width: 50%;
+        left: 50%;
         background: rgba(255, 116, 57, 0.2);
-        z-index: 2;
+
+      }
+    }
+
+    &.is-start_selection.is-end_selection.is-highlighted{
+      &:after {
+        display: none;
       }
     }
 
     &.is-end_selection.is-highlighted{
-      position: relative;
-      z-index: 2;
-      background-color: transparent;
-      &:before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 100%;
+      &:before{
+        background: #FF7439;
+      }
+      &:after{
+        width: 50%;
+       right: 50%;
         background: rgba(255, 116, 57, 0.2);
-        z-index: -1;
+
       }
     }
 
     &.is-highlighted {
       width: 100%;
-      border-radius: 0;
-      background: rgba(255, 116, 57, 0.2);
-
-
+      position: relative;
+      &:after{
+        display: block;
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 28px;
+        top: 0;
+        left: 0;
+        background: rgba(255, 116, 57, 0.2);
+        z-index: -2;
+      }
     }
   }
 
