@@ -15,49 +15,49 @@ const SidePanel = () => (
 
     <div className="side-panel__side-menu side-menu">
       <button className="side-menu__menu-item">
-        <img className="side-menu__item-logo" src="/images/analitics.svg" />
+        <img className="side-menu__item-logo" src="/filter-calendar/images/analitics.svg" />
         <span>Аналитика</span>
       </button>
 
       <button className="side-menu__menu-item">
-        <img className="side-menu__item-logo" src="/images/product.svg" />
+        <img className="side-menu__item-logo" src="/filter-calendar/images/product.svg" />
         <span>Продукт</span>
       </button>
 
       <button className="side-menu__menu-item">
-        <img className="side-menu__item-logo" src="/images/users.svg" />
+        <img className="side-menu__item-logo" src="/filter-calendar/images/users.svg" />
         <span>Пользователи</span>
       </button>
 
       <button className="side-menu__menu-item">
         <img className="side-menu__item-logo"
-             src="/images/site-builder.svg"
+             src="/filter-calendar/images/site-builder.svg"
         />
         <span>Конструктор сайта</span>
       </button>
 
       <button className="side-menu__menu-item">
-        <img className="side-menu__item-logo" src="/images/streams.svg" />
+        <img className="side-menu__item-logo" src="/filter-calendar/images/streams.svg" />
         <span>Трансляции</span>
       </button>
 
       <button className="side-menu__menu-item">
-        <img className="side-menu__item-logo" src="/images/sending.svg" />
+        <img className="side-menu__item-logo" src="/filter-calendar/images/sending.svg" />
         <span>Рассылка</span>
       </button>
 
       <button className="side-menu__menu-item">
-        <img className="side-menu__item-logo" src="/images/marketing.svg" />
+        <img className="side-menu__item-logo" src="/filter-calendar/images/marketing.svg" />
         <span>Маркетинг</span>
       </button>
 
       <button className="side-menu__menu-item">
-        <img className="side-menu__item-logo" src="/images/payments.svg" />
+        <img className="side-menu__item-logo" src="/filter-calendar/images/payments.svg" />
         <span>Платежы</span>
       </button>
 
       <button className="side-menu__menu-item">
-        <img className="side-menu__item-logo" src="/images/settings.svg" />
+        <img className="side-menu__item-logo" src="/filter-calendar/images/settings.svg" />
         <span>Настройки</span>
       </button>
     </div>

@@ -24,7 +24,7 @@
     box-shadow: 0px 10px 40px rgba(213, 221, 230, 0.6);
     background-color: white;
     margin-left: auto;
-    background-image: url("/images/icon-bell.svg");
+    background-image: url("/filter-calendar/images/icon-bell.svg");
   }
 
   &__select-name {
@@ -37,7 +37,7 @@
     outline: none;
     margin-left: 17px;
     padding: 12px 44px 12px 26px;
-    background-image: url("/images/icon-arrow.svg");
+    background-image: url("/filter-calendar/images/icon-arrow.svg");
     background-position: 80% 50%;
     background-repeat: no-repeat;
     box-shadow: 0px 10px 40px rgba(213, 221, 230, 0.6);
@@ -53,7 +53,7 @@
   &__search {
     margin-left: 18px;
     background-color: rgba(203, 215, 228, 0.4);
-    background-image: url("/images/icon-search.svg");
+    background-image: url("/filter-calendar/images/icon-search.svg");
   }
 
   &__select-language {
@@ -66,7 +66,7 @@
     outline: none;
     margin-left: 17px;
     padding: 12px 30px 12px 14px;
-    background-image: url("/images/icon-arrow.svg");
+    background-image: url("/filter-calendar/images/icon-arrow.svg");
     background-position: 80% 50%;
     background-repeat: no-repeat;
     box-shadow: 0px 10px 40px rgba(213, 221, 230, 0.6);

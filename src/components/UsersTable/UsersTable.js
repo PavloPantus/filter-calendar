@@ -133,10 +133,10 @@ const UsersTable = () => {
               <td className="users-table__data add-blur">{user.product}</td>
               <td className="users-table__data">
                 <button className="users-table__edit-item">
-                  <img src="images/icon-edit.svg" />
+                  <img src="/filter-calendar/images/icon-edit.svg" />
                 </button>
                 <button className="users-table__delete-item">
-                  <img src="images/icon-delete.svg" />
+                  <img src="/filter-calendar/images/icon-delete.svg" />
                 </button>
               </td>
             </tr>

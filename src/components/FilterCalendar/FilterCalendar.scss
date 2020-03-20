@@ -145,7 +145,7 @@
     border: 2px solid black;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url("/images/icon-calendar-control-arrow.svg");
+    background-image: url("/filter-calendar/images/icon-calendar-control-arrow.svg");
 
     &.is-next {
       transform: rotate(180deg);
@@ -182,6 +182,12 @@
     height: 28px;
     outline: none;
     z-index: 2;
+
+    &.is-prev_month,
+    &.is-next_month {
+      color: rgba(0, 0, 0, 0.21);
+    }
+
     &:first-child{
       padding-left: 14px;
       &:before{

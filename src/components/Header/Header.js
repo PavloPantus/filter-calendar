@@ -5,7 +5,7 @@ const Header = () => (
   <header className="header">
     <img
       className="header__logo"
-      src="images/logo_OJOWO.svg"
+      src="/filter-calendar/images/logo_OJOWO.svg"
       alt="logo"
     />
 

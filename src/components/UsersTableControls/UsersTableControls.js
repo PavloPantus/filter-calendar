@@ -34,14 +34,14 @@ const UsersTableControls = () => {
             }}
           >
             <img className="controls-button__icon"
-                 src="images/icon-calendar.svg"
+                 src="/filter-calendar/images/icon-calendar.svg"
             />
             <span className="controls-button__name">За 1 день</span>
           </button>
 
           <button className="controls-table__filter controls-button">
             <img className="controls-button__icon"
-                 src="images/icon-filter.svg"
+                 src="/filter-calendar/images/icon-filter.svg"
             />
             <span className="controls-button__name">Фильтр</span>
           </button>
