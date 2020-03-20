@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import './UsersTable.scss';
 
@@ -22,7 +23,7 @@ const UsersTable = () => {
     10: 'Октябрь',
     11: 'Ноябрь',
     12: 'Декабрь',
-  }
+  };
 
   const user = {
     userNumber: 1,
@@ -94,7 +95,7 @@ const UsersTable = () => {
       </thead>
       <tbody className="users-table__body">
         {
-          users.map(user=>(
+          users.map(user => (
             <tr key={user.userNumber} className="users-table__row">
               <td className="users-table__data">
                 <label>
@@ -106,20 +107,25 @@ const UsersTable = () => {
                 </label>
               </td>
               <td className="users-table__data">
-                <div className="users-table__user-number">User {user.userNumber}</div>
+                <div className="users-table__user-number">
+                  User
+                  {user.userNumber}
+                </div>
                 <div className="users-table__user-mail">{user.userMail}</div>
               </td>
               <td className="users-table__data">
                 {dateVocabulary[user.registrationDate.month]}
                 {' '}
-                {user.registrationDate.day},
+                {user.registrationDate.day}
+                ,
                 {' '}
                 {user.registrationDate.year}
               </td>
               <td className="users-table__data">
                 {dateVocabulary[user.lastActivity.month]}
                 {' '}
-                {user.lastActivity.day},
+                {user.lastActivity.day}
+                ,
                 {' '}
                 {user.lastActivity.year}
               </td>

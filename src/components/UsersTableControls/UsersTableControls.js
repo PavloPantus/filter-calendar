@@ -1,10 +1,23 @@
-import React, {useState} from 'react';
+/* eslint-disable */
+import React, { useState } from 'react';
 import './UsersTableControls.scss';
 import FilterCalendar from '../FilterCalendar/FilterCalendar';
 
 const UsersTableControls = () => {
-  let allMonth = ['Январь' , 'Февраль' , 'Март' , 'Апрель' , 'Май' , 'Июнь' , 'Июль' , 'Август' , 'Сентябрь' , 'Октябрь' , 'Ноябрь' , 'Декабрь'];
-
+  const allMonth = [
+    'Январь',
+    'Февраль',
+    'Март',
+    'Апрель',
+    'Май',
+    'Июнь',
+    'Июль',
+    'Август',
+    'Сентябрь',
+    'Октябрь',
+    'Ноябрь',
+    'Декабрь'
+  ];
 
   const [showCalendar, setShowCalendar] = useState(false);
   const [timePeriodStart, setTimePeriodStart] = useState(undefined);
@@ -16,14 +29,20 @@ const UsersTableControls = () => {
         <div className="controls-table__container">
           <button
             className="controls-table__time-period controls-button"
-            onClick={()=>{setShowCalendar(true)}}
+            onClick={() => {
+              setShowCalendar(true);
+            }}
           >
-            <img className="controls-button__icon" src="images/icon-calendar.svg" />
+            <img className="controls-button__icon"
+                 src="images/icon-calendar.svg"
+            />
             <span className="controls-button__name">За 1 день</span>
           </button>
 
           <button className="controls-table__filter controls-button">
-            <img className="controls-button__icon" src="images/icon-filter.svg" />
+            <img className="controls-button__icon"
+                 src="images/icon-filter.svg"
+            />
             <span className="controls-button__name">Фильтр</span>
           </button>
 
@@ -40,11 +59,19 @@ const UsersTableControls = () => {
             timePeriodStart && (
               <div className="controls-table__active-filter">
                 <span className="controls-table__filter-data">
-                  {timePeriodStart?.getDate()}{' '}{allMonth[timePeriodStart?.getMonth()].slice(0,3)}
+                  {timePeriodStart?.getDate()}
+                  {' '}
+                  {allMonth[timePeriodStart?.getMonth()].slice(0, 3)}
                   {' - '}
-                  {timePeriodEnd?.getDate()}{' '}{allMonth[timePeriodEnd?.getMonth()].slice(0,3)} {timePeriodEnd?.getFullYear()} г.
+                  {timePeriodEnd?.getDate()}
+                  {' '}
+                  {allMonth[timePeriodEnd?.getMonth()].slice(0, 3)}
+                  {' '}
+                  {timePeriodEnd?.getFullYear()}
+                  {' '}
+                  г.
                 </span>
-                <button className={'controls-table__cancel-filter'}></button>
+                <button className="controls-table__cancel-filter" />
               </div>
             )
           }
@@ -64,7 +91,7 @@ const UsersTableControls = () => {
         )
       }
     </>
-  )
-}
+  );
+};
 
 export default UsersTableControls;

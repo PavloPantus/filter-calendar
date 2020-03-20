@@ -1,12 +1,12 @@
+/* eslint-disable max-len */
 import React from 'react';
 import './App.scss';
-import Header from "./components/Header/Header";
-import SidePanel from "./components/SidePanel/SidePanel";
-import UsersTableControls from "./components/UsersTableControls/UsersTableControls";
-import UsersTable from "./components/UsersTable/UsersTable";
+import Header from './components/Header/Header';
+import SidePanel from './components/SidePanel/SidePanel';
+import UsersTableControls from './components/UsersTableControls/UsersTableControls';
+import UsersTable from './components/UsersTable/UsersTable';
 
 function App() {
-
   return (
     <div className="app">
       <div className="app__container">
