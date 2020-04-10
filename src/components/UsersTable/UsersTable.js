@@ -1,8 +1,13 @@
 /* eslint-disable */
-import React from 'react';
+import React, {useMemo, useState, useEffect} from 'react';
 import './UsersTable.scss';
 
-const UsersTable = () => {
+const UsersTable = (
+  {
+    timePeriodStart,
+    timePeriodEnd,
+  }
+  ) => {
   function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -42,28 +47,64 @@ const UsersTable = () => {
     product: 'Как наладить отнош',
   };
 
-  const users = [];
+  const [users, setUsers] = useState([]);
 
-  for (let i = 1; i <= 13; i += 1) {
-    const registrationDate = {
-      day: getRandomIntInclusive(1, 30),
-      month: getRandomIntInclusive(1, 12),
-      year: getRandomIntInclusive(2010, 2020),
-    };
+  useEffect(()=>{
+    let newUsers = [];
 
-    const newUser = {
-      ...user,
-      userNumber: i,
-      registrationDate,
-      lastActivity: {
+    for (let i = 1; i <= 130; i += 1) {
+      const registrationDate = {
         day: getRandomIntInclusive(1, 30),
         month: getRandomIntInclusive(1, 12),
-        year: getRandomIntInclusive(registrationDate.year + 1, 2020),
-      },
-    };
+        year: getRandomIntInclusive(2010, 2020),
+      };
 
-    users.push(newUser);
-  }
+      const newUser = {
+        ...user,
+        userNumber: i,
+        registrationDate,
+        lastActivity: {
+          day: getRandomIntInclusive(1, 30),
+          month: getRandomIntInclusive(1, 12),
+          year: getRandomIntInclusive(registrationDate.year + 1, 2020),
+        },
+      };
+
+      newUsers.push(newUser);
+    }
+
+     setUsers(newUsers)
+  }, [])
+
+
+  const filteredAndSortedUsers = useMemo(()=>{
+
+    if(timePeriodStart && timePeriodEnd){
+      console.log('filtering')
+      return users.filter((user)=>{
+        let userLastActivityDate = new Date(`${user.lastActivity.year}-${user.lastActivity.month}-${user.lastActivity.day}`);
+
+        if(
+          userLastActivityDate > timePeriodStart
+          &&
+          userLastActivityDate < timePeriodEnd
+
+        ) { return true}
+
+        return false;
+
+      })
+    }
+
+    return users.sort((user1,user2)=>{
+      let user1LastActivityDate = new Date(`${user1.lastActivity.year}-${user1.lastActivity.month}-${user1.lastActivity.day}`);
+      let user2LastActivityDate = new Date(`${user2.lastActivity.year}-${user2.lastActivity.month}-${user2.lastActivity.day}`);
+
+      return user1LastActivityDate - user2LastActivityDate
+    })
+  },[timePeriodStart, timePeriodEnd, users])
+
+
 
   return (
     <table className="users-table">
@@ -95,7 +136,7 @@ const UsersTable = () => {
       </thead>
       <tbody className="users-table__body">
         {
-          users.map(user => (
+          filteredAndSortedUsers.map(user => (
             <tr key={user.userNumber} className="users-table__row">
               <td className="users-table__data">
                 <label>

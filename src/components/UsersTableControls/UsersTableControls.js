@@ -3,7 +3,13 @@ import React, { useState } from 'react';
 import './UsersTableControls.scss';
 import FilterCalendar from '../FilterCalendar/FilterCalendar';
 
-const UsersTableControls = () => {
+const UsersTableControls = (
+  {
+    timePeriodStart,
+    setTimePeriodStart,
+    timePeriodEnd,
+    setTimePeriodEnd
+  }) => {
   const allMonth = [
     'Январь',
     'Февраль',
@@ -20,8 +26,8 @@ const UsersTableControls = () => {
   ];
 
   const [showCalendar, setShowCalendar] = useState(false);
-  const [timePeriodStart, setTimePeriodStart] = useState(undefined);
-  const [timePeriodEnd, setTimePeriodEnd] = useState(undefined);
+ /* const [timePeriodStart, setTimePeriodStart] = useState(undefined);
+  const [timePeriodEnd, setTimePeriodEnd] = useState(undefined);*/
 
   return (
     <>
