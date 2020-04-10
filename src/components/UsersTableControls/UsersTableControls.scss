@@ -32,7 +32,11 @@
     font-weight: bold;
     font-size: 14px;
     background-color: white;
-    padding: 11px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    width: 120px;
     border: 2px solid #000000;
     border-radius: 7px;
     cursor: pointer;
@@ -55,7 +59,11 @@
     color: #FFFFFF;
     background: #FF7439;
     border-radius: 7px;
-    padding: 11px 15px 11px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 199px;
+    height: 45px;
   }
 
   &__filters-container {
@@ -91,7 +99,9 @@
     border: 1px solid transparent;
     border-radius: 50%;
     background-size: contain;
+    background-color: transparent;
     background-image: url("/filter-calendar/images/icon-filter-close.svg");
+    background-repeat: no-repeat;
     cursor: pointer;
     margin-left: 16px;
 

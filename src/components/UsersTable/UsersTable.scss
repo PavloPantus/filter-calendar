@@ -50,7 +50,7 @@
     position: absolute;
 
     &:checked+.users-table__all-users-label{
-      background-image: url("/images/icon-arrow.svg");
+      background-image: url("/filter-calendar/images/icon-arrow.svg");
       background-repeat: no-repeat;
       background-position: center;
       border-color: #FF7439;
@@ -124,7 +124,7 @@
     position: absolute;
 
     &:checked+.users-table__user-label{
-      background-image: url("/images/icon-arrow.svg");
+      background-image: url("/filter-calendar/images/icon-arrow.svg");
       background-repeat: no-repeat;
       background-position: center;
       border-color: #FF7439;

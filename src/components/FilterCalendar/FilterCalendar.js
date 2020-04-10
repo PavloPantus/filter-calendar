@@ -179,9 +179,7 @@ const FilterCalendar = (
 
         <div className="calendar__block-calendar">
           <div className="calendar__current-month">
-            {allMonth[month]}
-            ,
-            {date.getFullYear()}
+            {allMonth[month]}, {date.getFullYear()}
           </div>
           <SimpleReactCalendar
             onMonthChange={(date) => {
