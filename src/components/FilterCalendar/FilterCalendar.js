@@ -220,6 +220,11 @@ const FilterCalendar = (
           </button>
           <button
             onClick={() => {
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+              })
+              console.log('one day', selectStart, selectEnd)
               setTimePeriodStart(selectStart);
               setTimePeriodEnd(selectEnd);
               showCalendar(false);

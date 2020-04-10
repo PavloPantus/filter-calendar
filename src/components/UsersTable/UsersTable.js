@@ -45,6 +45,7 @@ const UsersTable = (
     },
     lastActions: 'view_landing_course1',
     product: 'Как наладить отнош',
+    isActive: true,
   };
 
   const [users, setUsers] = useState([]);
@@ -54,9 +55,9 @@ const UsersTable = (
 
     for (let i = 1; i <= 130; i += 1) {
       const registrationDate = {
-        day: getRandomIntInclusive(1, 30),
+        day: getRandomIntInclusive(0, 29),
         month: getRandomIntInclusive(1, 12),
-        year: getRandomIntInclusive(2010, 2020),
+        year: getRandomIntInclusive(2019, 2019),
       };
 
       const newUser = {
@@ -64,10 +65,11 @@ const UsersTable = (
         userNumber: i,
         registrationDate,
         lastActivity: {
-          day: getRandomIntInclusive(1, 30),
-          month: getRandomIntInclusive(1, 12),
+          day: getRandomIntInclusive(0, 29),
+          month: getRandomIntInclusive(3, 4),
           year: getRandomIntInclusive(registrationDate.year + 1, 2020),
         },
+        isLocked: getRandomIntInclusive(0,1)===1? true : false,
       };
 
       newUsers.push(newUser);
@@ -82,26 +84,43 @@ const UsersTable = (
     if(timePeriodStart && timePeriodEnd){
       console.log('filtering')
       return users.filter((user)=>{
-        let userLastActivityDate = new Date(`${user.lastActivity.year}-${user.lastActivity.month}-${user.lastActivity.day}`);
+        let userLastActivityDate = new Date(`${user.lastActivity.year}-${user.lastActivity.month.toString().length>1? user.lastActivity.month: `0${user.lastActivity.month}`}-${user.lastActivity.day.toString().length>1? user.lastActivity.day : `0${user.lastActivity.day}`}T00:00:00Z`)
+
 
         if(
-          userLastActivityDate > timePeriodStart
+          userLastActivityDate >= timePeriodStart
           &&
-          userLastActivityDate < timePeriodEnd
+          userLastActivityDate <= timePeriodEnd
+          ||
+          (userLastActivityDate.getFullYear() === timePeriodStart.getFullYear()
+            &&
+            userLastActivityDate.getMonth() === timePeriodStart.getMonth()
+            &&
+            userLastActivityDate.getDate() === timePeriodStart.getDate()
+            &&
+            userLastActivityDate.getFullYear() === timePeriodEnd.getFullYear()
+            &&
+            userLastActivityDate.getMonth() === timePeriodEnd.getMonth()
+            &&
+            userLastActivityDate.getDate() === timePeriodEnd.getDate())
+
 
         ) { return true}
 
         return false;
 
       })
+        .sort((user1,user2)=>{
+        let user1LastActivityDate = new Date(`${user1.lastActivity.year}-${user1.lastActivity.month.toString().length>1? user1.lastActivity.month: `0${user1.lastActivity.month}`}-${user1.lastActivity.day.toString().length>1? user1.lastActivity.day : `0${user1.lastActivity.day}`}T00:00:00Z`);
+        let user2LastActivityDate = new Date(`${user2.lastActivity.year}-${user2.lastActivity.month.toString().length>1? user2.lastActivity.month: `0${user2.lastActivity.month}`}-${user2.lastActivity.day.toString().length>1? user2.lastActivity.day : `0${user2.lastActivity.day}`}T00:00:00Z`);
+
+        return user1LastActivityDate.getTime() - user2LastActivityDate.getTime()
+      })
+
     }
 
-    return users.sort((user1,user2)=>{
-      let user1LastActivityDate = new Date(`${user1.lastActivity.year}-${user1.lastActivity.month}-${user1.lastActivity.day}`);
-      let user2LastActivityDate = new Date(`${user2.lastActivity.year}-${user2.lastActivity.month}-${user2.lastActivity.day}`);
+    return users
 
-      return user1LastActivityDate - user2LastActivityDate
-    })
   },[timePeriodStart, timePeriodEnd, users])
 
 
@@ -149,12 +168,16 @@ const UsersTable = (
               </td>
               <td className="users-table__data">
                 <div className="users-table__user-number">
+                  {
+                    user.isLocked &&
+                    <img className={'users-table__icon-locked-user'} src="/filter-calendar/images/icon-lockUser.svg" />
+                  }
                   User
                   {user.userNumber}
                 </div>
                 <div className="users-table__user-mail">{user.userMail}</div>
               </td>
-              <td className="users-table__data">
+              <td className={`users-table__data ${user.isLocked? 'users-table__data_locked' : ''}`}>
                 {dateVocabulary[user.registrationDate.month]}
                 {' '}
                 {user.registrationDate.day}
@@ -162,7 +185,7 @@ const UsersTable = (
                 {' '}
                 {user.registrationDate.year}
               </td>
-              <td className="users-table__data">
+              <td className={`users-table__data ${user.isLocked? 'users-table__data_locked' : ''}`}>
                 {dateVocabulary[user.lastActivity.month]}
                 {' '}
                 {user.lastActivity.day}
@@ -170,8 +193,8 @@ const UsersTable = (
                 {' '}
                 {user.lastActivity.year}
               </td>
-              <td className="users-table__data add-blur">{user.lastActions}</td>
-              <td className="users-table__data add-blur">{user.product}</td>
+              <td className={`users-table__data add-blur ${user.isLocked? 'users-table__data_locked' : ''}`}>{user.lastActions}</td>
+              <td className={`users-table__data add-blur ${user.isLocked? 'users-table__data_locked' : ''}`}>{user.product}</td>
               <td className="users-table__data">
                 <button className="users-table__edit-item">
                   <img src="/filter-calendar/images/icon-edit.svg" />
